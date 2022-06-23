@@ -21,7 +21,7 @@ height = 660
 
 gameWindow = pygame.display.set_mode((width,height))   # A game window of pygame
 
-back = pygame.image.load(".\Py.jpg")
+back = pygame.image.load("Py.jpg")
 back = pygame.transform.scale(back,(width,height)).convert_alpha()
 
 pygame.display.set_caption("Feed the Snake") # The title of any game
@@ -77,17 +77,17 @@ def gameloop():
     snake_length = 1
 
     global music
-    with open('.\hiscore.txt','r') as f:
+    with open('hiscore.txt','r') as f:
          hiscore = f.read()
 
     if music:
-        pygame.mixer.music.load('.\Back.mp3')
+        pygame.mixer.music.load('Back.mp3')
         pygame.mixer.music.play()
 
 
     while not exit_game:
         if game_over:
-            with open('.\hiscore.txt','w') as f:
+            with open('hiscore.txt','w') as f:
                 f.write(str(hiscore))
             gameWindow.fill(black)
             text_screen('Game Over Press Enter to Continue',red,width-1000,height-360)
@@ -99,7 +99,7 @@ def gameloop():
                     exit_game = True
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RETURN:
-                        pygame.mixer.music.load('.\Back.mp3')
+                        pygame.mixer.music.load('Back.mp3')
                         pygame.mixer.music.play()
                         gameloop()
 
