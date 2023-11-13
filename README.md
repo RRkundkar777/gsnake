@@ -1,6 +1,5 @@
-# Snake Game in Python
 # gsnake
-## Nokia classic snake game remake
+## Nokia's classic snake game
 
 ### Technologies used
 - PyGame
@@ -9,7 +8,7 @@
 - Python 3
 - PyGame 2.5.2
 
-## How to play
+## Installing
 - Install via pip
 ```shell
 python3 -m pip install gsnake
@@ -19,6 +18,14 @@ python3 -m pip install gsnake
 ```shell
 python3 -m gsnake
 ```
+
+## Game controls
+- Control the snake with arrow keys
+- To speed up, press `w`
+- To speed down, press `s`
+- To pause, press `Spacebar`
+- To continue, press arrow keys
+- To exit, press `ESC`
 
 ## Developed by
 [Rushikesh Kundkar](https://github.com/RRkundkar777)

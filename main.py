@@ -12,9 +12,9 @@ def init_game():
     pygame.mixer.init()
 
     game_window = pygame.display.set_mode((width, height))
-    background = pygame.image.load("bg.jpg")
-    background = pygame.transform.scale(
-        background, (width, height)).convert_alpha()
+    
+    color = (255,255,255)
+    game_window.fill(color)
 
     score_font = pygame.font.SysFont(None, 40)
     status_font = pygame.font.SysFont(None, 30)
@@ -22,7 +22,7 @@ def init_game():
     pygame.display.set_caption("Feed the Snake")
     pygame.display.update()
 
-    return game_window, background, score_font, status_font
+    return game_window, score_font, status_font
 
 # Display text on screen
 def text_screen(game_window, text, font, color, x, y):
@@ -35,7 +35,7 @@ def plot_snake(game_window, color, snake_list, snake_size):
         pygame.draw.rect(game_window, color, [x, y, snake_size, snake_size])
 
 # Instance of the game
-def gameloop(game_window, back, score_font, status_font):
+def gameloop(game_window,score_font, status_font):
     # game state
     exit_game = False
     game_over = False
@@ -83,7 +83,7 @@ def gameloop(game_window, back, score_font, status_font):
                     exit_game = True
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RETURN:
-                        gameloop(game_window, back, score_font, status_font)
+                        gameloop(game_window,score_font, status_font)
 
         else:
             for event in pygame.event.get():
@@ -138,7 +138,7 @@ def gameloop(game_window, back, score_font, status_font):
                 snake_y = height - 10
 
             game_window.fill(white)
-            game_window.blit(back, (0, 0))
+            # game_window.blit(back, (0, 0))
 
             if pause:
                 text_screen(game_window, 'Paused...',
@@ -180,7 +180,7 @@ def gameloop(game_window, back, score_font, status_font):
 
 # Start of application
 def main():
-    gw, bg, scfont, stfont = init_game()
-    gameloop(game_window=gw, back=bg, score_font=scfont, status_font=stfont)
+    gw, scfont, stfont = init_game()
+    gameloop(game_window=gw,score_font=scfont, status_font=stfont)
 
 main()
